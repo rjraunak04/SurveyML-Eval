@@ -312,19 +312,39 @@ The structure above describes the intended organisation. Directories and impleme
 
 ## 13. Installation and Usage
 
-**Implementation status:** Installation and execution commands are not yet finalised because the benchmark runner and grading scripts are still under development.
+CP-07C implements the synthetic benchmark dataset generator and validation workflow for SurveyML-Eval.
 
-The intended workflow is:
+## Quick start
 
-1. Obtain the benchmark task package.
-2. Configure the evaluation environment.
-3. Select the model and record its exact version.
-4. Execute the benchmark tasks.
-5. Store raw model outputs and execution metadata.
-6. Run the grading framework.
-7. Generate task-level and aggregate evaluation reports.
+```bash
+python -m pip install -r requirements.txt
+python scripts/generate_synthetic_data.py
+pytest -q
+```
 
-Final installation instructions, dependencies, environment variables, runtime requirements, and example commands will be added after implementation and testing.
+The generator creates the benchmark data bundle under `data/synthetic/` and writes the required dataset groups:
+
+- `DS-01/` finite population and core sample data.
+- `DS-02/` leakage scenarios.
+- `DS-03/` missingness and class-imbalance scenarios.
+- `DS-04/` independent external population and external validation sample.
+- `manifest.json` with file checksums and provenance metadata.
+
+## Dataset-generation design
+
+The generator implements the CP-07B design decisions for the synthetic benchmark:
+
+- Eight strata and twenty PSUs per stratum.
+- Population generation before sample selection.
+- Ten selected PSUs per stratum and 125 units sampled per selected PSU.
+- Stage-specific inclusion probabilities and inverse-probability weights.
+- Binary outcome generation from a calibrated logistic model with a synthetic expected prevalence.
+- Independent external population generation with covariate and prevalence shifts.
+- Synthetic provenance metadata and checksum tracking.
+
+The generator is reproducible through the master seed `42` and separate random streams for population generation, sampling, missingness, imbalance, and external validation.
+
+For the benchmark, the clean model-facing sample excludes leakage columns and protected audit variables. Leakage and missingness scenarios are intentionally created as separate dataset views.
 
 ## 14. Experimental Results
 

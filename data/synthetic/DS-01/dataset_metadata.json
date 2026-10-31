@@ -1,0 +1,21 @@
+{
+  "dataset_id": "DS-01",
+  "dataset_name": "Core Synthetic Survey Population",
+  "expected_prevalence": 0.27,
+  "n_strata": 8,
+  "population_record_count": 39731,
+  "psus_per_stratum": 20,
+  "purpose": "Finite population used for survey design, two-stage sampling, and predictive benchmarking.",
+  "sampling_design": {
+    "first_stage_psu_selection": {
+      "M_h": 20,
+      "m_h": 10,
+      "pi1": 0.5
+    },
+    "second_stage_unit_selection": {
+      "units_per_selected_psu": 125
+    },
+    "type": "two_stage_stratified_cluster_sampling"
+  },
+  "seed": 42
+}

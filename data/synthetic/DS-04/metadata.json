@@ -1,0 +1,21 @@
+{
+  "concept_shift": {
+    "media_access_efficiency_change": -0.28,
+    "target_name": "synthetic_binary_outcome",
+    "wealth_coefficient_increase": 0.25
+  },
+  "covariate_shift": {
+    "age_mean_shift": 7.0,
+    "health_access_shift": 0.15,
+    "media_access_shift": 0.18,
+    "urban_rate_shift": 0.2,
+    "wealth_mean_shift": 0.75
+  },
+  "dataset_id": "DS-04",
+  "description": "Independent external survey population and validation sample.",
+  "prevalence_shift": {
+    "development_prevalence": 0.27,
+    "external_prevalence": 0.43835114055891056
+  },
+  "sample_size": 3000
+}

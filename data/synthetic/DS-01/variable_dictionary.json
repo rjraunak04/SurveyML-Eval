@@ -1,0 +1,139 @@
+{
+  "age": {
+    "description": "Age in years.",
+    "range": [
+      18,
+      85
+    ],
+    "role": "feature",
+    "type": "integer"
+  },
+  "base_weight": {
+    "description": "Base inverse-probability weight computed as 1/pi.",
+    "role": "survey_design",
+    "type": "float"
+  },
+  "education_level": {
+    "categories": [
+      "none",
+      "primary",
+      "secondary",
+      "tertiary"
+    ],
+    "description": "Education category.",
+    "role": "feature",
+    "type": "categorical"
+  },
+  "employment_status": {
+    "categories": [
+      "unemployed",
+      "employed",
+      "student",
+      "retired"
+    ],
+    "description": "Employment status category.",
+    "role": "feature",
+    "type": "categorical"
+  },
+  "health_access": {
+    "description": "Access to health services (1=yes).",
+    "role": "feature",
+    "type": "binary"
+  },
+  "household_size": {
+    "description": "Household size.",
+    "range": [
+      1,
+      12
+    ],
+    "role": "feature",
+    "type": "integer"
+  },
+  "media_access": {
+    "description": "Access to media or information resources (1=yes).",
+    "role": "feature",
+    "type": "binary"
+  },
+  "outcome": {
+    "description": "Synthetic binary outcome used for predictive tasks.",
+    "role": "target",
+    "type": "binary",
+    "values": [
+      0,
+      1
+    ]
+  },
+  "pi": {
+    "description": "Overall inclusion probability.",
+    "role": "survey_design",
+    "type": "float"
+  },
+  "pi1": {
+    "description": "First-stage inclusion probability of the selected PSU.",
+    "role": "survey_design",
+    "type": "float"
+  },
+  "pi2": {
+    "description": "Second-stage inclusion probability for each sampled unit within a selected PSU.",
+    "role": "survey_design",
+    "type": "float"
+  },
+  "psu_id": {
+    "description": "Synthetic primary sampling unit identifier.",
+    "role": "survey_design",
+    "type": "identifier"
+  },
+  "residence_type": {
+    "categories": [
+      "rural",
+      "urban"
+    ],
+    "description": "Urban-rural residence type.",
+    "role": "feature",
+    "type": "categorical"
+  },
+  "respondent_id": {
+    "description": "Unique respondent identifier within the benchmark dataset.",
+    "role": "identifier",
+    "type": "string"
+  },
+  "sex": {
+    "categories": [
+      "female",
+      "male"
+    ],
+    "description": "Binary sex assignment.",
+    "role": "feature",
+    "type": "categorical"
+  },
+  "stratum_id": {
+    "categories": [
+      "STR-01",
+      "STR-02",
+      "STR-03",
+      "STR-04",
+      "STR-05",
+      "STR-06",
+      "STR-07",
+      "STR-08"
+    ],
+    "description": "Synthetic sampling stratum identifier.",
+    "role": "survey_design",
+    "type": "categorical"
+  },
+  "survey_weight": {
+    "description": "Inverse-probability weight from the two-stage stratified design.",
+    "positive": true,
+    "role": "survey_design",
+    "type": "float"
+  },
+  "wealth_index": {
+    "description": "Synthetic socioeconomic ranking on a latent scale.",
+    "range": [
+      -3.0,
+      3.0
+    ],
+    "role": "feature",
+    "type": "float"
+  }
+}

@@ -969,4 +969,4 @@ CP-07B will be considered complete when:
 - The document passes content and formatting review.
 - The approved document is committed to the repository.
 
-**End of CP-07B.**
+**End of CP-07B.**wc -l docs/synthetic_dataset_design.md

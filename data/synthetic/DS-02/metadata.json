@@ -1,0 +1,9 @@
+{
+  "description": "Controlled leakage scenarios.",
+  "scenarios": {
+    "direct_target_leakage.csv": "data\\synthetic\\DS-02\\direct_target_leakage.csv",
+    "identifier_leakage.csv": "data\\synthetic\\DS-02\\identifier_leakage.csv",
+    "post_outcome_information.csv": "data\\synthetic\\DS-02\\post_outcome_information.csv",
+    "preprocessing_leakage.csv": "data\\synthetic\\DS-02\\preprocessing_leakage.csv"
+  }
+}
