@@ -1,0 +1,629 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "task_count": 8,
+  "tasks": [
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-01",
+          "exists": true,
+          "path": "data/synthetic/DS-01/core_sample.csv",
+          "purpose": "survey-design interpretation and weight reasoning",
+          "sha256": "53466c078443238bb073f22eb853c52512b0660c7e643e392b39732e2f58455e"
+        }
+      ],
+      "difficulty": "intermediate",
+      "hidden_reference": {
+        "file": "reference_answers/T01/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "sampling weights reflect unequal selection probabilities",
+          "strata are sampling subdivisions",
+          "PSUs are selected at the first-stage cluster sampling step",
+          "variance estimation should respect clustering and stratification"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "respondent_id",
+          "stratum_id",
+          "psu_id",
+          "age",
+          "sex",
+          "education_level",
+          "wealth_index",
+          "residence_type",
+          "employment_status",
+          "household_size",
+          "media_access",
+          "health_access",
+          "survey_weight"
+        ],
+        "description": "Explain the purpose of sampling weights, distinguish strata from PSUs, and recommend a design-aware analysis workflow.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-01/core_sample.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-01/core_sample.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "weight_purpose",
+          "strata_role",
+          "psu_role",
+          "variance_method",
+          "target_population",
+          "recommended_workflow"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "survey_design",
+      "task_id": "T01",
+      "task_instance_id": "T01-001",
+      "title": "Complex Survey Design and Weight Interpretation"
+    },
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-01",
+          "exists": true,
+          "path": "data/synthetic/DS-01/core_sample.csv",
+          "purpose": "population-relevant predictive modelling with survey weights",
+          "sha256": "53466c078443238bb073f22eb853c52512b0660c7e643e392b39732e2f58455e"
+        }
+      ],
+      "difficulty": "advanced",
+      "hidden_reference": {
+        "file": "reference_answers/T02/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "weights represent design inclusion probabilities, not class imbalance adjustments",
+          "training and evaluation should remain separate",
+          "weighted metrics and design-aware uncertainty are different concerns"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "age",
+          "sex",
+          "education_level",
+          "wealth_index",
+          "residence_type",
+          "employment_status",
+          "household_size",
+          "media_access",
+          "health_access",
+          "survey_weight"
+        ],
+        "description": "Recommend a statistically defensible modelling strategy that distinguishes sampling weights from class weights and evaluation design.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-01/core_sample.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-01/core_sample.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "target_population",
+          "estimand",
+          "modelling_strategy",
+          "weight_handling",
+          "evaluation_metrics",
+          "uncertainty_method"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "survey_weighted_prediction",
+      "task_id": "T02",
+      "task_instance_id": "T02-001",
+      "title": "Survey-Weighted Predictive Modelling"
+    },
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-02",
+          "exists": true,
+          "path": "data/synthetic/DS-02/preprocessing_leakage.csv",
+          "purpose": "leakage-aware validation and feature engineering",
+          "sha256": "d6b0e7d143f89dbb384bc91efad041db1ab51c3d94bc0fc4245ec9d248b52757"
+        },
+        {
+          "dataset_id": "DS-02",
+          "exists": true,
+          "path": "data/synthetic/DS-02/direct_target_leakage.csv",
+          "purpose": "target leakage detection",
+          "sha256": "8a4bdbeae9794a6921253ac7ec71ddc531a64c1720f9f3f4a3ac9a8595cdfd81"
+        },
+        {
+          "dataset_id": "DS-02",
+          "exists": true,
+          "path": "data/synthetic/DS-02/identifier_leakage.csv",
+          "purpose": "record identity leakage",
+          "sha256": "30f70495d5d92641316d5e30e0a712af5d1aa3036e379b6d63a3c40284a0e5a9"
+        }
+      ],
+      "difficulty": "advanced",
+      "hidden_reference": {
+        "file": "reference_answers/T03/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "outcome and post-outcome variables must never be used for prediction",
+          "identifier fields and group labels can leak signal if not isolated",
+          "preprocessing must occur within each training split only"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "respondent_id",
+          "stratum_id",
+          "psu_id",
+          "age",
+          "sex",
+          "wealth_index",
+          "employment_status",
+          "health_access"
+        ],
+        "description": "Identify the leakage mechanism, explain why it violates benchmark integrity, and specify how to fix the pipeline.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-02/preprocessing_leakage.csv",
+          "data/synthetic/DS-02/direct_target_leakage.csv",
+          "data/synthetic/DS-02/identifier_leakage.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-02/preprocessing_leakage.csv",
+          "data/synthetic/DS-02/direct_target_leakage.csv",
+          "data/synthetic/DS-02/identifier_leakage.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "leakage_type",
+          "why_unsafe",
+          "correction",
+          "train_test_boundary",
+          "protected_columns"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "data_leakage",
+      "task_id": "T03",
+      "task_instance_id": "T03-001",
+      "title": "Data Leakage Detection and Prevention"
+    },
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-01",
+          "exists": true,
+          "path": "data/synthetic/DS-01/core_sample.csv",
+          "purpose": "baseline validation design",
+          "sha256": "53466c078443238bb073f22eb853c52512b0660c7e643e392b39732e2f58455e"
+        },
+        {
+          "dataset_id": "DS-02",
+          "exists": true,
+          "path": "data/synthetic/DS-02/preprocessing_leakage.csv",
+          "purpose": "wrong-validation-design example",
+          "sha256": "d6b0e7d143f89dbb384bc91efad041db1ab51c3d94bc0fc4245ec9d248b52757"
+        }
+      ],
+      "difficulty": "intermediate",
+      "hidden_reference": {
+        "file": "reference_answers/T04/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "validation must separate training and evaluation data",
+          "survey design and leakage constraints should influence the design choice",
+          "external validation is distinct from random split validation"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "stratum_id",
+          "psu_id",
+          "survey_weight",
+          "wealth_index",
+          "media_access",
+          "health_access"
+        ],
+        "description": "Choose a validation design that respects the survey structure and avoids leakage, with explicit reasoning about the target population.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-01/core_sample.csv",
+          "data/synthetic/DS-02/preprocessing_leakage.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-01/core_sample.csv",
+          "data/synthetic/DS-02/preprocessing_leakage.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "validation_design",
+          "leakage_check",
+          "strata_psu_consideration",
+          "reporting_plan"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "validation_strategy",
+      "task_id": "T04",
+      "task_instance_id": "T04-001",
+      "title": "Validation Strategy Selection"
+    },
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-03",
+          "exists": true,
+          "path": "data/synthetic/DS-03/class_imbalance_10pct.csv",
+          "purpose": "classification performance under controlled imbalance",
+          "sha256": "7b0274fe7356308a0009a06387749015af8aff0756e77ef471a1b7d16a7b56d9"
+        }
+      ],
+      "difficulty": "advanced",
+      "hidden_reference": {
+        "file": "reference_answers/T05/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "class imbalance changes the meaning of raw accuracy",
+          "precision-recall, balanced accuracy, and calibration should be considered explicitly",
+          "thresholds and prevalence should be interpreted carefully"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "age",
+          "sex",
+          "wealth_index",
+          "residence_type",
+          "media_access",
+          "health_access",
+          "survey_weight"
+        ],
+        "description": "Evaluate classification performance under a controlled imbalance regime and explain which metrics and threshold choices are defensible.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-03/class_imbalance_10pct.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-03/class_imbalance_10pct.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "imbalance_summary",
+          "metric_choice",
+          "threshold_reasoning",
+          "resampling_consideration"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "class_imbalance",
+      "task_id": "T05",
+      "task_instance_id": "T05-001",
+      "title": "Class Imbalance and Performance Evaluation"
+    },
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-04",
+          "exists": true,
+          "path": "data/synthetic/DS-04/external_population.csv",
+          "purpose": "development-population comparison",
+          "sha256": "7e75391821a6c9c955f3ffb267966a03452f2d211d00e8bce85d82ff0537ab6b"
+        },
+        {
+          "dataset_id": "DS-04",
+          "exists": true,
+          "path": "data/synthetic/DS-04/external_validation_sample.csv",
+          "purpose": "external validation sample",
+          "sha256": "081e8baa2ba8a38df38c355d97c3532bb19c6437d0d460aa0307e0a12a481f6d"
+        }
+      ],
+      "difficulty": "advanced",
+      "hidden_reference": {
+        "file": "reference_answers/T06/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "external validation is distinct from internal validation",
+          "covariate and outcome distribution shifts can change predictive performance",
+          "one cannot assume the same model calibration holds under shift"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "age",
+          "sex",
+          "wealth_index",
+          "residence_type",
+          "media_access",
+          "health_access",
+          "survey_weight"
+        ],
+        "description": "Assess whether the model generalises to an external population with shifted covariate prevalence and concept relationships.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-04/external_population.csv",
+          "data/synthetic/DS-04/external_validation_sample.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-04/external_population.csv",
+          "data/synthetic/DS-04/external_validation_sample.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "shift_summary",
+          "external_validity",
+          "prevalence_comparison",
+          "recommendation"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "external_validation",
+      "task_id": "T06",
+      "task_instance_id": "T06-001",
+      "title": "External Validation and Distribution Shift"
+    },
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-03",
+          "exists": true,
+          "path": "data/synthetic/DS-03/mcar_10pct.csv",
+          "purpose": "MCAR scenario",
+          "sha256": "f386613562bb5c49b038ee3c323e84e4d928fe78638489e86584157068bba1ef"
+        },
+        {
+          "dataset_id": "DS-03",
+          "exists": true,
+          "path": "data/synthetic/DS-03/mar_10pct.csv",
+          "purpose": "MAR scenario",
+          "sha256": "f33717114e85c635eba4ba31bcf79325c14d1006e2f0566014eba0861ab8f2f7"
+        },
+        {
+          "dataset_id": "DS-03",
+          "exists": true,
+          "path": "data/synthetic/DS-03/mnar_10pct.csv",
+          "purpose": "MNAR scenario",
+          "sha256": "8c66478f1af28d5b21526e283b847bf6c97be2c4f0244acc0da7a25746efb304"
+        }
+      ],
+      "difficulty": "advanced",
+      "hidden_reference": {
+        "file": "reference_answers/T07/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "MNAR depends on the underlying value before masking",
+          "MCAR and MAR have different implications for missingness handling",
+          "analysis should document assumptions and uncertainty propagation"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "age",
+          "sex",
+          "wealth_index",
+          "residence_type",
+          "media_access",
+          "health_access",
+          "survey_weight"
+        ],
+        "description": "Reason about the missing-data mechanism, explain how it changes the analysis, and recommend an appropriate uncertainty-aware strategy.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-03/mcar_10pct.csv",
+          "data/synthetic/DS-03/mar_10pct.csv",
+          "data/synthetic/DS-03/mnar_10pct.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-03/mcar_10pct.csv",
+          "data/synthetic/DS-03/mar_10pct.csv",
+          "data/synthetic/DS-03/mnar_10pct.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "missingness_mechanism",
+          "assumption_check",
+          "imputation_or_analysis_choice",
+          "uncertainty_recommendation"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "missing_data",
+      "task_id": "T07",
+      "task_instance_id": "T07-001",
+      "title": "Missing Data and Statistical Uncertainty"
+    },
+    {
+      "benchmark_id": "SurveyML-Eval",
+      "benchmark_version": "1.0.0",
+      "dataset_refs": [
+        {
+          "dataset_id": "DS-01",
+          "exists": true,
+          "path": "data/synthetic/DS-01/core_sample.csv",
+          "purpose": "calibration assessment on development sample",
+          "sha256": "53466c078443238bb073f22eb853c52512b0660c7e643e392b39732e2f58455e"
+        },
+        {
+          "dataset_id": "DS-04",
+          "exists": true,
+          "path": "data/synthetic/DS-04/external_validation_sample.csv",
+          "purpose": "calibration comparison under external shift",
+          "sha256": "081e8baa2ba8a38df38c355d97c3532bb19c6437d0d460aa0307e0a12a481f6d"
+        }
+      ],
+      "difficulty": "advanced",
+      "hidden_reference": {
+        "file": "reference_answers/T08/reference_answer.json",
+        "grading_mode": "reference_and_human_review",
+        "must_identify": [
+          "AUC and calibration are different properties",
+          "recalibration should be fit on a dev set, not the test set",
+          "SHAP values explain predictive contributions, not causal effects"
+        ]
+      },
+      "model_visible_input": {
+        "allowed_columns": [
+          "age",
+          "sex",
+          "wealth_index",
+          "residence_type",
+          "media_access",
+          "health_access",
+          "survey_weight"
+        ],
+        "description": "Assess calibration, interpretability, and whether model explanations can be treated as causal effects or only descriptive associations.",
+        "inputs_are_public": true,
+        "protected_columns": [
+          "outcome",
+          "target_leak_direct",
+          "post_outcome_telemetry",
+          "psu_outcome_label",
+          "target_probability_proxy"
+        ],
+        "reference_files": [
+          "data/synthetic/DS-01/core_sample.csv",
+          "data/synthetic/DS-04/external_validation_sample.csv"
+        ]
+      },
+      "provenance": {
+        "checkpoint": "CP-08",
+        "generated_datasets": [
+          "data/synthetic/DS-01/core_sample.csv",
+          "data/synthetic/DS-04/external_validation_sample.csv"
+        ],
+        "master_seed": 42,
+        "source": "synthetic benchmark generator"
+      },
+      "response_schema": {
+        "output_format": "JSON object",
+        "required_fields": [
+          "calibration_summary",
+          "calibration_method",
+          "interpretability_method",
+          "causal_limitation"
+        ],
+        "strictly_public": true
+      },
+      "task_family": "calibration_interpretability",
+      "task_id": "T08",
+      "task_instance_id": "T08-001",
+      "title": "Model Calibration and Interpretability"
+    }
+  ]
+}

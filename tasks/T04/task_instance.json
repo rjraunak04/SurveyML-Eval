@@ -1,0 +1,76 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "dataset_refs": [
+    {
+      "dataset_id": "DS-01",
+      "exists": true,
+      "path": "data/synthetic/DS-01/core_sample.csv",
+      "purpose": "baseline validation design",
+      "sha256": "53466c078443238bb073f22eb853c52512b0660c7e643e392b39732e2f58455e"
+    },
+    {
+      "dataset_id": "DS-02",
+      "exists": true,
+      "path": "data/synthetic/DS-02/preprocessing_leakage.csv",
+      "purpose": "wrong-validation-design example",
+      "sha256": "d6b0e7d143f89dbb384bc91efad041db1ab51c3d94bc0fc4245ec9d248b52757"
+    }
+  ],
+  "difficulty": "intermediate",
+  "model_visible_input": {
+    "allowed_columns": [
+      "stratum_id",
+      "psu_id",
+      "survey_weight",
+      "wealth_index",
+      "media_access",
+      "health_access"
+    ],
+    "description": "Choose a validation design that respects the survey structure and avoids leakage, with explicit reasoning about the target population.",
+    "inputs_are_public": true,
+    "protected_columns": [
+      "outcome",
+      "target_leak_direct",
+      "post_outcome_telemetry",
+      "psu_outcome_label",
+      "target_probability_proxy"
+    ],
+    "reference_files": [
+      "data/synthetic/DS-01/core_sample.csv",
+      "data/synthetic/DS-02/preprocessing_leakage.csv"
+    ]
+  },
+  "prompt": {
+    "required_fields": [
+      "validation_design",
+      "leakage_check",
+      "strata_psu_consideration",
+      "reporting_plan"
+    ],
+    "text": "You are given a synthetic benchmark task for Validation Strategy Selection. Use only the public model-visible data. Do not expose hidden answers, leakage labels, or protected outcome columns. Return JSON matching the required response schema."
+  },
+  "provenance": {
+    "checkpoint": "CP-08",
+    "generated_datasets": [
+      "data/synthetic/DS-01/core_sample.csv",
+      "data/synthetic/DS-02/preprocessing_leakage.csv"
+    ],
+    "master_seed": 42,
+    "source": "synthetic benchmark generator"
+  },
+  "response_schema": {
+    "output_format": "JSON object",
+    "required_fields": [
+      "validation_design",
+      "leakage_check",
+      "strata_psu_consideration",
+      "reporting_plan"
+    ],
+    "strictly_public": true
+  },
+  "task_family": "validation_strategy",
+  "task_id": "T04",
+  "task_instance_id": "T04-001",
+  "title": "Validation Strategy Selection"
+}

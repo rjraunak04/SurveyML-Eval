@@ -1,0 +1,77 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "dataset_refs": [
+    {
+      "dataset_id": "DS-01",
+      "exists": true,
+      "path": "data/synthetic/DS-01/core_sample.csv",
+      "purpose": "calibration assessment on development sample",
+      "sha256": "53466c078443238bb073f22eb853c52512b0660c7e643e392b39732e2f58455e"
+    },
+    {
+      "dataset_id": "DS-04",
+      "exists": true,
+      "path": "data/synthetic/DS-04/external_validation_sample.csv",
+      "purpose": "calibration comparison under external shift",
+      "sha256": "081e8baa2ba8a38df38c355d97c3532bb19c6437d0d460aa0307e0a12a481f6d"
+    }
+  ],
+  "difficulty": "advanced",
+  "model_visible_input": {
+    "allowed_columns": [
+      "age",
+      "sex",
+      "wealth_index",
+      "residence_type",
+      "media_access",
+      "health_access",
+      "survey_weight"
+    ],
+    "description": "Assess calibration, interpretability, and whether model explanations can be treated as causal effects or only descriptive associations.",
+    "inputs_are_public": true,
+    "protected_columns": [
+      "outcome",
+      "target_leak_direct",
+      "post_outcome_telemetry",
+      "psu_outcome_label",
+      "target_probability_proxy"
+    ],
+    "reference_files": [
+      "data/synthetic/DS-01/core_sample.csv",
+      "data/synthetic/DS-04/external_validation_sample.csv"
+    ]
+  },
+  "prompt": {
+    "required_fields": [
+      "calibration_summary",
+      "calibration_method",
+      "interpretability_method",
+      "causal_limitation"
+    ],
+    "text": "You are given a synthetic benchmark task for Model Calibration and Interpretability. Use only the public model-visible data. Do not expose hidden answers, leakage labels, or protected outcome columns. Return JSON matching the required response schema."
+  },
+  "provenance": {
+    "checkpoint": "CP-08",
+    "generated_datasets": [
+      "data/synthetic/DS-01/core_sample.csv",
+      "data/synthetic/DS-04/external_validation_sample.csv"
+    ],
+    "master_seed": 42,
+    "source": "synthetic benchmark generator"
+  },
+  "response_schema": {
+    "output_format": "JSON object",
+    "required_fields": [
+      "calibration_summary",
+      "calibration_method",
+      "interpretability_method",
+      "causal_limitation"
+    ],
+    "strictly_public": true
+  },
+  "task_family": "calibration_interpretability",
+  "task_id": "T08",
+  "task_instance_id": "T08-001",
+  "title": "Model Calibration and Interpretability"
+}

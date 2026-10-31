@@ -1,0 +1,78 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "dataset_refs": [
+    {
+      "dataset_id": "DS-01",
+      "exists": true,
+      "path": "data/synthetic/DS-01/core_sample.csv",
+      "purpose": "survey-design interpretation and weight reasoning",
+      "sha256": "53466c078443238bb073f22eb853c52512b0660c7e643e392b39732e2f58455e"
+    }
+  ],
+  "difficulty": "intermediate",
+  "model_visible_input": {
+    "allowed_columns": [
+      "respondent_id",
+      "stratum_id",
+      "psu_id",
+      "age",
+      "sex",
+      "education_level",
+      "wealth_index",
+      "residence_type",
+      "employment_status",
+      "household_size",
+      "media_access",
+      "health_access",
+      "survey_weight"
+    ],
+    "description": "Explain the purpose of sampling weights, distinguish strata from PSUs, and recommend a design-aware analysis workflow.",
+    "inputs_are_public": true,
+    "protected_columns": [
+      "outcome",
+      "target_leak_direct",
+      "post_outcome_telemetry",
+      "psu_outcome_label",
+      "target_probability_proxy"
+    ],
+    "reference_files": [
+      "data/synthetic/DS-01/core_sample.csv"
+    ]
+  },
+  "prompt": {
+    "required_fields": [
+      "weight_purpose",
+      "strata_role",
+      "psu_role",
+      "variance_method",
+      "target_population",
+      "recommended_workflow"
+    ],
+    "text": "You are given a synthetic benchmark task for Complex Survey Design and Weight Interpretation. Use only the public model-visible data. Do not expose hidden answers, leakage labels, or protected outcome columns. Return JSON matching the required response schema."
+  },
+  "provenance": {
+    "checkpoint": "CP-08",
+    "generated_datasets": [
+      "data/synthetic/DS-01/core_sample.csv"
+    ],
+    "master_seed": 42,
+    "source": "synthetic benchmark generator"
+  },
+  "response_schema": {
+    "output_format": "JSON object",
+    "required_fields": [
+      "weight_purpose",
+      "strata_role",
+      "psu_role",
+      "variance_method",
+      "target_population",
+      "recommended_workflow"
+    ],
+    "strictly_public": true
+  },
+  "task_family": "survey_design",
+  "task_id": "T01",
+  "task_instance_id": "T01-001",
+  "title": "Complex Survey Design and Weight Interpretation"
+}

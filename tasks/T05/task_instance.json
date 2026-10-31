@@ -1,0 +1,68 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "dataset_refs": [
+    {
+      "dataset_id": "DS-03",
+      "exists": true,
+      "path": "data/synthetic/DS-03/class_imbalance_10pct.csv",
+      "purpose": "classification performance under controlled imbalance",
+      "sha256": "7b0274fe7356308a0009a06387749015af8aff0756e77ef471a1b7d16a7b56d9"
+    }
+  ],
+  "difficulty": "advanced",
+  "model_visible_input": {
+    "allowed_columns": [
+      "age",
+      "sex",
+      "wealth_index",
+      "residence_type",
+      "media_access",
+      "health_access",
+      "survey_weight"
+    ],
+    "description": "Evaluate classification performance under a controlled imbalance regime and explain which metrics and threshold choices are defensible.",
+    "inputs_are_public": true,
+    "protected_columns": [
+      "outcome",
+      "target_leak_direct",
+      "post_outcome_telemetry",
+      "psu_outcome_label",
+      "target_probability_proxy"
+    ],
+    "reference_files": [
+      "data/synthetic/DS-03/class_imbalance_10pct.csv"
+    ]
+  },
+  "prompt": {
+    "required_fields": [
+      "imbalance_summary",
+      "metric_choice",
+      "threshold_reasoning",
+      "resampling_consideration"
+    ],
+    "text": "You are given a synthetic benchmark task for Class Imbalance and Performance Evaluation. Use only the public model-visible data. Do not expose hidden answers, leakage labels, or protected outcome columns. Return JSON matching the required response schema."
+  },
+  "provenance": {
+    "checkpoint": "CP-08",
+    "generated_datasets": [
+      "data/synthetic/DS-03/class_imbalance_10pct.csv"
+    ],
+    "master_seed": 42,
+    "source": "synthetic benchmark generator"
+  },
+  "response_schema": {
+    "output_format": "JSON object",
+    "required_fields": [
+      "imbalance_summary",
+      "metric_choice",
+      "threshold_reasoning",
+      "resampling_consideration"
+    ],
+    "strictly_public": true
+  },
+  "task_family": "class_imbalance",
+  "task_id": "T05",
+  "task_instance_id": "T05-001",
+  "title": "Class Imbalance and Performance Evaluation"
+}

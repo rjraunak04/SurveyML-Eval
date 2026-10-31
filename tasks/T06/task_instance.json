@@ -1,0 +1,77 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "dataset_refs": [
+    {
+      "dataset_id": "DS-04",
+      "exists": true,
+      "path": "data/synthetic/DS-04/external_population.csv",
+      "purpose": "development-population comparison",
+      "sha256": "7e75391821a6c9c955f3ffb267966a03452f2d211d00e8bce85d82ff0537ab6b"
+    },
+    {
+      "dataset_id": "DS-04",
+      "exists": true,
+      "path": "data/synthetic/DS-04/external_validation_sample.csv",
+      "purpose": "external validation sample",
+      "sha256": "081e8baa2ba8a38df38c355d97c3532bb19c6437d0d460aa0307e0a12a481f6d"
+    }
+  ],
+  "difficulty": "advanced",
+  "model_visible_input": {
+    "allowed_columns": [
+      "age",
+      "sex",
+      "wealth_index",
+      "residence_type",
+      "media_access",
+      "health_access",
+      "survey_weight"
+    ],
+    "description": "Assess whether the model generalises to an external population with shifted covariate prevalence and concept relationships.",
+    "inputs_are_public": true,
+    "protected_columns": [
+      "outcome",
+      "target_leak_direct",
+      "post_outcome_telemetry",
+      "psu_outcome_label",
+      "target_probability_proxy"
+    ],
+    "reference_files": [
+      "data/synthetic/DS-04/external_population.csv",
+      "data/synthetic/DS-04/external_validation_sample.csv"
+    ]
+  },
+  "prompt": {
+    "required_fields": [
+      "shift_summary",
+      "external_validity",
+      "prevalence_comparison",
+      "recommendation"
+    ],
+    "text": "You are given a synthetic benchmark task for External Validation and Distribution Shift. Use only the public model-visible data. Do not expose hidden answers, leakage labels, or protected outcome columns. Return JSON matching the required response schema."
+  },
+  "provenance": {
+    "checkpoint": "CP-08",
+    "generated_datasets": [
+      "data/synthetic/DS-04/external_population.csv",
+      "data/synthetic/DS-04/external_validation_sample.csv"
+    ],
+    "master_seed": 42,
+    "source": "synthetic benchmark generator"
+  },
+  "response_schema": {
+    "output_format": "JSON object",
+    "required_fields": [
+      "shift_summary",
+      "external_validity",
+      "prevalence_comparison",
+      "recommendation"
+    ],
+    "strictly_public": true
+  },
+  "task_family": "external_validation",
+  "task_id": "T06",
+  "task_instance_id": "T06-001",
+  "title": "External Validation and Distribution Shift"
+}

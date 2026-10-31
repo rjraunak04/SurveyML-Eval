@@ -1,23 +1,23 @@
 {
   "class_imbalance_scenarios": {
-    "class_imbalance_05pct.csv": "data\\synthetic\\DS-03\\class_imbalance_05pct.csv",
-    "class_imbalance_10pct.csv": "data\\synthetic\\DS-03\\class_imbalance_10pct.csv",
-    "class_imbalance_20pct.csv": "data\\synthetic\\DS-03\\class_imbalance_20pct.csv",
-    "class_imbalance_40pct.csv": "data\\synthetic\\DS-03\\class_imbalance_40pct.csv"
+    "class_imbalance_05pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\class_imbalance_05pct.csv",
+    "class_imbalance_10pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\class_imbalance_10pct.csv",
+    "class_imbalance_20pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\class_imbalance_20pct.csv",
+    "class_imbalance_40pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\class_imbalance_40pct.csv"
   },
   "missingness_scenarios": {
-    "mar_05pct.csv": "data\\synthetic\\DS-03\\mar_05pct.csv",
-    "mar_10pct.csv": "data\\synthetic\\DS-03\\mar_10pct.csv",
-    "mar_20pct.csv": "data\\synthetic\\DS-03\\mar_20pct.csv",
-    "mar_30pct.csv": "data\\synthetic\\DS-03\\mar_30pct.csv",
-    "mcar_05pct.csv": "data\\synthetic\\DS-03\\mcar_05pct.csv",
-    "mcar_10pct.csv": "data\\synthetic\\DS-03\\mcar_10pct.csv",
-    "mcar_20pct.csv": "data\\synthetic\\DS-03\\mcar_20pct.csv",
-    "mcar_30pct.csv": "data\\synthetic\\DS-03\\mcar_30pct.csv",
-    "mnar_05pct.csv": "data\\synthetic\\DS-03\\mnar_05pct.csv",
-    "mnar_10pct.csv": "data\\synthetic\\DS-03\\mnar_10pct.csv",
-    "mnar_20pct.csv": "data\\synthetic\\DS-03\\mnar_20pct.csv",
-    "mnar_30pct.csv": "data\\synthetic\\DS-03\\mnar_30pct.csv"
+    "mar_05pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mar_05pct.csv",
+    "mar_10pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mar_10pct.csv",
+    "mar_20pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mar_20pct.csv",
+    "mar_30pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mar_30pct.csv",
+    "mcar_05pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mcar_05pct.csv",
+    "mcar_10pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mcar_10pct.csv",
+    "mcar_20pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mcar_20pct.csv",
+    "mcar_30pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mcar_30pct.csv",
+    "mnar_05pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mnar_05pct.csv",
+    "mnar_10pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mnar_10pct.csv",
+    "mnar_20pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mnar_20pct.csv",
+    "mnar_30pct.csv": "F:\\Users\\Faith\\Desktop\\SurveyML-Eval\\SurveyML-Eval\\data\\synthetic\\DS-03\\mnar_30pct.csv"
   },
   "rates": [
     0.05,

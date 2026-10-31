@@ -1,0 +1,12 @@
+{
+  "exposure_policy": "Never expose this reference in model-facing inputs.",
+  "grading_mode": "reference_and_human_review",
+  "must_identify": [
+    "AUC and calibration are different properties",
+    "recalibration should be fit on a dev set, not the test set",
+    "SHAP values explain predictive contributions, not causal effects"
+  ],
+  "task_id": "T08",
+  "task_instance_id": "T08-001",
+  "title": "Model Calibration and Interpretability"
+}

@@ -1,0 +1,89 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "dataset_refs": [
+    {
+      "dataset_id": "DS-02",
+      "exists": true,
+      "path": "data/synthetic/DS-02/preprocessing_leakage.csv",
+      "purpose": "leakage-aware validation and feature engineering",
+      "sha256": "d6b0e7d143f89dbb384bc91efad041db1ab51c3d94bc0fc4245ec9d248b52757"
+    },
+    {
+      "dataset_id": "DS-02",
+      "exists": true,
+      "path": "data/synthetic/DS-02/direct_target_leakage.csv",
+      "purpose": "target leakage detection",
+      "sha256": "8a4bdbeae9794a6921253ac7ec71ddc531a64c1720f9f3f4a3ac9a8595cdfd81"
+    },
+    {
+      "dataset_id": "DS-02",
+      "exists": true,
+      "path": "data/synthetic/DS-02/identifier_leakage.csv",
+      "purpose": "record identity leakage",
+      "sha256": "30f70495d5d92641316d5e30e0a712af5d1aa3036e379b6d63a3c40284a0e5a9"
+    }
+  ],
+  "difficulty": "advanced",
+  "model_visible_input": {
+    "allowed_columns": [
+      "respondent_id",
+      "stratum_id",
+      "psu_id",
+      "age",
+      "sex",
+      "wealth_index",
+      "employment_status",
+      "health_access"
+    ],
+    "description": "Identify the leakage mechanism, explain why it violates benchmark integrity, and specify how to fix the pipeline.",
+    "inputs_are_public": true,
+    "protected_columns": [
+      "outcome",
+      "target_leak_direct",
+      "post_outcome_telemetry",
+      "psu_outcome_label",
+      "target_probability_proxy"
+    ],
+    "reference_files": [
+      "data/synthetic/DS-02/preprocessing_leakage.csv",
+      "data/synthetic/DS-02/direct_target_leakage.csv",
+      "data/synthetic/DS-02/identifier_leakage.csv"
+    ]
+  },
+  "prompt": {
+    "required_fields": [
+      "leakage_type",
+      "why_unsafe",
+      "correction",
+      "train_test_boundary",
+      "protected_columns"
+    ],
+    "text": "You are given a synthetic benchmark task for Data Leakage Detection and Prevention. Use only the public model-visible data. Do not expose hidden answers, leakage labels, or protected outcome columns. Return JSON matching the required response schema."
+  },
+  "provenance": {
+    "checkpoint": "CP-08",
+    "generated_datasets": [
+      "data/synthetic/DS-02/preprocessing_leakage.csv",
+      "data/synthetic/DS-02/direct_target_leakage.csv",
+      "data/synthetic/DS-02/identifier_leakage.csv"
+    ],
+    "master_seed": 42,
+    "source": "synthetic benchmark generator"
+  },
+  "response_schema": {
+    "output_format": "JSON object",
+    "required_fields": [
+      "leakage_type",
+      "why_unsafe",
+      "correction",
+      "train_test_boundary",
+      "protected_columns"
+    ],
+    "strictly_public": true
+  },
+  "task_family": "data_leakage",
+  "task_id": "T03",
+  "task_instance_id": "T03-001",
+  "title": "Data Leakage Detection and Prevention"
+}

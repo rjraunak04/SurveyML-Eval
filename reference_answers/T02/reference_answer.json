@@ -1,0 +1,12 @@
+{
+  "exposure_policy": "Never expose this reference in model-facing inputs.",
+  "grading_mode": "reference_and_human_review",
+  "must_identify": [
+    "weights represent design inclusion probabilities, not class imbalance adjustments",
+    "training and evaluation should remain separate",
+    "weighted metrics and design-aware uncertainty are different concerns"
+  ],
+  "task_id": "T02",
+  "task_instance_id": "T02-001",
+  "title": "Survey-Weighted Predictive Modelling"
+}

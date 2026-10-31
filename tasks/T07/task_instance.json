@@ -1,0 +1,86 @@
+{
+  "benchmark_id": "SurveyML-Eval",
+  "benchmark_version": "1.0.0",
+  "dataset_refs": [
+    {
+      "dataset_id": "DS-03",
+      "exists": true,
+      "path": "data/synthetic/DS-03/mcar_10pct.csv",
+      "purpose": "MCAR scenario",
+      "sha256": "f386613562bb5c49b038ee3c323e84e4d928fe78638489e86584157068bba1ef"
+    },
+    {
+      "dataset_id": "DS-03",
+      "exists": true,
+      "path": "data/synthetic/DS-03/mar_10pct.csv",
+      "purpose": "MAR scenario",
+      "sha256": "f33717114e85c635eba4ba31bcf79325c14d1006e2f0566014eba0861ab8f2f7"
+    },
+    {
+      "dataset_id": "DS-03",
+      "exists": true,
+      "path": "data/synthetic/DS-03/mnar_10pct.csv",
+      "purpose": "MNAR scenario",
+      "sha256": "8c66478f1af28d5b21526e283b847bf6c97be2c4f0244acc0da7a25746efb304"
+    }
+  ],
+  "difficulty": "advanced",
+  "model_visible_input": {
+    "allowed_columns": [
+      "age",
+      "sex",
+      "wealth_index",
+      "residence_type",
+      "media_access",
+      "health_access",
+      "survey_weight"
+    ],
+    "description": "Reason about the missing-data mechanism, explain how it changes the analysis, and recommend an appropriate uncertainty-aware strategy.",
+    "inputs_are_public": true,
+    "protected_columns": [
+      "outcome",
+      "target_leak_direct",
+      "post_outcome_telemetry",
+      "psu_outcome_label",
+      "target_probability_proxy"
+    ],
+    "reference_files": [
+      "data/synthetic/DS-03/mcar_10pct.csv",
+      "data/synthetic/DS-03/mar_10pct.csv",
+      "data/synthetic/DS-03/mnar_10pct.csv"
+    ]
+  },
+  "prompt": {
+    "required_fields": [
+      "missingness_mechanism",
+      "assumption_check",
+      "imputation_or_analysis_choice",
+      "uncertainty_recommendation"
+    ],
+    "text": "You are given a synthetic benchmark task for Missing Data and Statistical Uncertainty. Use only the public model-visible data. Do not expose hidden answers, leakage labels, or protected outcome columns. Return JSON matching the required response schema."
+  },
+  "provenance": {
+    "checkpoint": "CP-08",
+    "generated_datasets": [
+      "data/synthetic/DS-03/mcar_10pct.csv",
+      "data/synthetic/DS-03/mar_10pct.csv",
+      "data/synthetic/DS-03/mnar_10pct.csv"
+    ],
+    "master_seed": 42,
+    "source": "synthetic benchmark generator"
+  },
+  "response_schema": {
+    "output_format": "JSON object",
+    "required_fields": [
+      "missingness_mechanism",
+      "assumption_check",
+      "imputation_or_analysis_choice",
+      "uncertainty_recommendation"
+    ],
+    "strictly_public": true
+  },
+  "task_family": "missing_data",
+  "task_id": "T07",
+  "task_instance_id": "T07-001",
+  "title": "Missing Data and Statistical Uncertainty"
+}

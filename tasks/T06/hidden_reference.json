@@ -1,0 +1,12 @@
+{
+  "exposure_policy": "Never expose this reference in model-facing inputs.",
+  "grading_mode": "reference_and_human_review",
+  "must_identify": [
+    "external validation is distinct from internal validation",
+    "covariate and outcome distribution shifts can change predictive performance",
+    "one cannot assume the same model calibration holds under shift"
+  ],
+  "task_id": "T06",
+  "task_instance_id": "T06-001",
+  "title": "External Validation and Distribution Shift"
+}

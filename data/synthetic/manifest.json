@@ -31,9 +31,9 @@
       "sha256": "30f70495d5d92641316d5e30e0a712af5d1aa3036e379b6d63a3c40284a0e5a9"
     },
     {
-      "bytes": 427,
+      "bytes": 655,
       "path": "DS-02/metadata.json",
-      "sha256": "1385f8f87ab9df3001027e8a641b083f5f325061352f53c38a00b42dba178eaa"
+      "sha256": "28b713d1c92b9f17df81659af84954caef5808f53e3265076c29b6c28da22b19"
     },
     {
       "bytes": 2356278,
@@ -106,9 +106,9 @@
       "sha256": "370ac9b07b5462cdf8d04a0dd9f55ed8f1fa95ed5665afcc499393a67f6bca23"
     },
     {
-      "bytes": 1338,
+      "bytes": 2250,
       "path": "DS-03/metadata.json",
-      "sha256": "29cb35cfaf444f2228af8e04457e95c9af35f13c770d50eae56d01eae882ac34"
+      "sha256": "4bb3e7bf65a68161d189bf0e4d02526c6ec9dcf096de2fd1ed1a1c53096598f9"
     },
     {
       "bytes": 2199275,
@@ -148,7 +148,7 @@
     {
       "bytes": 6032,
       "path": "metadata/provenance.json",
-      "sha256": "cf3774beb238bb6aad4e54ed655e575b39b70cc1c895a2368c64610ea14954e3"
+      "sha256": "4594044a27bfa6890a0f299eebe9bc54a6920006c12981e513d15428d4aee638"
     }
   ]
 }

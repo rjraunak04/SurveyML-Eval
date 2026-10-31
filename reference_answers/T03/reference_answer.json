@@ -1,0 +1,12 @@
+{
+  "exposure_policy": "Never expose this reference in model-facing inputs.",
+  "grading_mode": "reference_and_human_review",
+  "must_identify": [
+    "outcome and post-outcome variables must never be used for prediction",
+    "identifier fields and group labels can leak signal if not isolated",
+    "preprocessing must occur within each training split only"
+  ],
+  "task_id": "T03",
+  "task_instance_id": "T03-001",
+  "title": "Data Leakage Detection and Prevention"
+}

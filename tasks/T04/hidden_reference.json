@@ -1,0 +1,12 @@
+{
+  "exposure_policy": "Never expose this reference in model-facing inputs.",
+  "grading_mode": "reference_and_human_review",
+  "must_identify": [
+    "validation must separate training and evaluation data",
+    "survey design and leakage constraints should influence the design choice",
+    "external validation is distinct from random split validation"
+  ],
+  "task_id": "T04",
+  "task_instance_id": "T04-001",
+  "title": "Validation Strategy Selection"
+}
