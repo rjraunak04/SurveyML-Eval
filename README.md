@@ -1,4 +1,3 @@
-
 # SurveyML-Eval
 
 **A reproducible benchmark evaluating Large Language Models on statistical reasoning, survey-weighted machine learning, validation, and distribution shift.**
@@ -278,7 +277,13 @@ SurveyML-Eval/
 │   ├── benchmark_task_design.md
 │   ├── methodology.md
 │   ├── evaluation_protocol.md
-│   └── grading_framework.md
+│   ├── grading_framework.md
+│   ├── repository_architecture.md
+│   ├── benchmark_task_schema.md
+│   ├── dataset_schema.md
+│   ├── execution_architecture.md
+│   ├── grading_architecture.md
+│   └── architecture_overview.md
 │
 ├── data/
 │   ├── raw/
@@ -372,6 +377,8 @@ The final submission package will follow the official size, accessibility, and d
 
 ## 17. Research Documentation
 
+The following documents define the research design, benchmark methodology, and system architecture.
+
 | Document | Description |
 |---|---|
 | [Problem Statement](docs/problem_statement.md) | Research motivation, problem, and scope |
@@ -380,7 +387,13 @@ The final submission package will follow the official size, accessibility, and d
 | [Benchmark Task Design](docs/benchmark_task_design.md) | Eight task families and task specifications |
 | [Research Methodology](docs/methodology.md) | Proposed benchmark methodology |
 | [Evaluation Protocol](docs/evaluation_protocol.md) | Model evaluation and statistical analysis |
-| [Grading Framework](docs/grading_framework.md) | Task rubrics and scoring architecture |
+| [Grading Framework](docs/grading_framework.md) | Task rubrics and scoring framework |
+| [Architecture Overview](docs/architecture_overview.md) | Unified overview of the benchmark architecture |
+| [Repository Architecture](docs/repository_architecture.md) | Repository organization and component responsibilities |
+| [Benchmark Task Schema](docs/benchmark_task_schema.md) | Task metadata and instance structure |
+| [Dataset Schema](docs/dataset_schema.md) | Dataset organization, metadata, and governance |
+| [Execution Architecture](docs/execution_architecture.md) | Model execution and response management |
+| [Grading Architecture](docs/grading_architecture.md) | Grading methods, scoring, and audit records |
 
 ## 18. Future Development Roadmap
 
@@ -414,4 +427,3 @@ The goal is to contribute a transparent and reproducible evaluation framework th
 **Project:** SurveyML-Eval
 **Research focus:** Survey-Weighted Machine Learning and LLM Evaluation
 **Development status:** Research design and documentation completed; implementation and empirical evaluation pending.
-```
