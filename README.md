@@ -318,9 +318,22 @@ CP-07C implements the synthetic benchmark dataset generator and validation workf
 
 ```bash
 python -m pip install -r requirements.txt
+cp .env.example .env  # optional when using live provider credentials
 python scripts/generate_synthetic_data.py
 pytest -q
 ```
+
+### Model execution and environment configuration
+
+The benchmark execution layer is provider-independent and supports a mock/dry-run path by default.
+
+- Use `SURVEYML_PROVIDER=mock` for deterministic local validation and tests.
+- Use `SURVEYML_MODEL` to specify the exact model identifier for the configured provider.
+- Set `SURVEYML_ALLOW_LIVE_MODEL_CALLS=true` only when a real API call is intentionally approved.
+- Store credentials only in environment variables such as `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, and `GOOGLE_API_KEY`.
+- The repository never commits real API keys; `.env.example` contains placeholder values only.
+
+The default dry-run execution path does not contact external model providers and is safe for local validation.
 
 The generator creates the benchmark data bundle under `data/synthetic/` and writes the required dataset groups:
 
