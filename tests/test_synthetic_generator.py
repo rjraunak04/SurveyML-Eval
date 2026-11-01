@@ -80,3 +80,14 @@ def test_synthetic_generator_outputs() -> None:
     ]]
     for path in ds03_files:
         assert path.exists(), f"Missing required file: {path.name}"
+
+
+def test_generated_dataset_metadata_uses_repo_relative_paths() -> None:
+    ds02_metadata = json.loads((DATA_DIR / "DS-02" / "metadata.json").read_text(encoding="utf-8"))
+    ds03_metadata = json.loads((DATA_DIR / "DS-03" / "metadata.json").read_text(encoding="utf-8"))
+
+    for mapping in (ds02_metadata["scenarios"], ds03_metadata["missingness_scenarios"], ds03_metadata["class_imbalance_scenarios"]):
+        for value in mapping.values():
+            path = Path(value)
+            assert not path.is_absolute(), value
+            assert (DATA_DIR / path).exists(), value

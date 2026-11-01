@@ -46,6 +46,13 @@ def write_json(path: Path, payload: Dict[str, Any]) -> None:
         f.write("\n")
 
 
+def _as_repo_relative_path(path: Path, root: Path) -> str:
+    try:
+        return path.relative_to(root).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 def _variable_dictionary() -> Dict[str, Any]:
     return {
         "respondent_id": {"role": "identifier", "type": "string", "description": "Unique respondent identifier within the benchmark dataset."},
@@ -542,14 +549,17 @@ def generate_all(output_root: Path | str = "data/synthetic") -> Dict[str, Any]:
     ds02_dir = root / "DS-02"
     ds02_dir.mkdir(parents=True, exist_ok=True)
     ds02_files = generate_ds02(sample, ds02_dir)
-    write_json(ds02_dir / "metadata.json", {"scenarios": {k: str(v) for k, v in ds02_files.items()}, "description": "Controlled leakage scenarios."})
+    write_json(ds02_dir / "metadata.json", {
+        "scenarios": {k: _as_repo_relative_path(Path(v), root) for k, v in ds02_files.items()},
+        "description": "Controlled leakage scenarios.",
+    })
 
     ds03_dir = root / "DS-03"
     ds03_dir.mkdir(parents=True, exist_ok=True)
     ds03_files = generate_ds03(sample, ds03_dir)
     write_json(ds03_dir / "metadata.json", {
-        "missingness_scenarios": {k: str(v) for k, v in ds03_files.items() if "class_imbalance" not in k},
-        "class_imbalance_scenarios": {k: str(v) for k, v in ds03_files.items() if "class_imbalance" in k},
+        "missingness_scenarios": {k: _as_repo_relative_path(Path(v), root) for k, v in ds03_files.items() if "class_imbalance" not in k},
+        "class_imbalance_scenarios": {k: _as_repo_relative_path(Path(v), root) for k, v in ds03_files.items() if "class_imbalance" in k},
         "rates": [0.05, 0.10, 0.20, 0.30],
         "target_prevalence_levels": [0.40, 0.20, 0.10, 0.05],
     })
