@@ -344,6 +344,8 @@ class ModelExecutionEngine:
 
     def __init__(self, repo_root: str | None = None, loader: TaskLoader | None = None) -> None:
         self.loader = loader or TaskLoader(repo_root)
+        from .storage import ResponseStorage
+        self.storage = ResponseStorage(repo_root)
 
     @property
     def supported_providers(self) -> tuple[str, ...]:
